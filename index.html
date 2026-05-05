@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#fff0f5;
+  text-align:center;
+}
+
+/* screens */
+.screen{
+  display:none;
+  height:100vh;
+  padding-top:90px;
+}
+.active{
+  display:block;
+}
+
+h1{
+  font-size:30px;
+}
+p{
+  font-size:16px;
+  color:#444;
+}
+
+button{
+  padding:15px 30px;
+  font-size:18px;
+  border:none;
+  border-radius:12px;
+  background:#ff69b4;
+  color:white;
+}
+
+/* envelope grid */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:20px;
+  padding:30px;
+}
+
+.envelope{
+  font-size:40px;
+  padding:25px;
+  background:white;
+  border-radius:15px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 💖 SCREEN 1 -->
+<div id="screen1" class="screen active">
+  <h1>Hi my love 💖</h1>
+  <p>I made this just for you!</p>
+  <p>Tap the envelopes to reveal surprises 💌</p>
+  <br>
+  <button onclick="goNext()">Start Game →</button>
+</div>
+
+<!-- 💌 SCREEN 2 -->
+<div id="screen2" class="screen">
+  <h2>Tap any envelope 💌</h2>
+
+  <div class="grid">
+    <div class="envelope" onclick="openMsg(this,0)">💌</div>
+    <div class="envelope" onclick="openMsg(this,1)">💌</div>
+    <div class="envelope" onclick="openMsg(this,2)">💌</div>
+    <div class="envelope" onclick="openMsg(this,3)">💌</div>
+    <div class="envelope" onclick="openMsg(this,4)">💌</div>
+    <div class="envelope" onclick="openMsg(this,5)">💌</div>
+  </div>
+</div>
+
+<script>
+const messages=[
+ "You are my favorite person ❤️",
+ "I smile whenever I think of you 😊",
+ "You make my world beautiful 🌍",
+ "I’m lucky to have you 💖",
+ "You are my safe place 🫶",
+ "I love you more every day 💕"
+];
+
+function goNext(){
+ document.getElementById("screen1").classList.remove("active");
+ document.getElementById("screen2").classList.add("active");
+}
+
+function openMsg(el,i){
+ alert(messages[i]);
+ el.innerHTML="Opened 💖";
+ el.onclick=null;
+}
+</script>
+
+</body>
+</html>
